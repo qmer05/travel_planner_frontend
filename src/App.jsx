@@ -10,6 +10,8 @@ import Countries from "./pages/Countries";
 import LoginPage from "./pages/LoginPage";
 import MainLayout from "./layouts/Mainlayout";
 import { useEffect, useState } from "react";
+import Admin from "./pages/Admin";
+import SignUpPage from "./pages/SignUpPage";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -33,7 +35,9 @@ function App() {
         <Route index element={<Home />} />{" "}
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+        <Route path="/signup" element={<SignUpPage/>}/>
         <Route path="/countries" element={<Countries countries={countries}/>} />
+        <Route path="/admin" element={<Admin/>} />
       </Route>
     )
   );

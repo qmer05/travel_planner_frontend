@@ -53,6 +53,18 @@ object when you do)*/
       });
   };
 
+  const createUser = (username, password) => {
+    const options = makeOptions("POST", false, {
+      username: username,
+      password: password,
+    });
+    return fetch(URL + "/auth/register", options)
+      .then(handleHttpErrors)
+      .then((res) => {
+        return res;
+      });
+  };
+
   const fetchDataCountries = () => {
     const options = makeOptions("GET", true); // True adds the token
     return fetch(URL + "/countries", options).then(handleHttpErrors);
@@ -74,6 +86,7 @@ object when you do)*/
     }
     return opts;
   };
+
   return {
     makeOptions,
     setToken,
@@ -82,8 +95,11 @@ object when you do)*/
     login,
     logout,
     hasUserAccess,
+    createUser,
     fetchDataCountries
   };
 }
+
 const facade = apiFacade();
+
 export default facade;

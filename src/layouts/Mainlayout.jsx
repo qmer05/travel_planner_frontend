@@ -1,5 +1,6 @@
-import {Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import facade from "../util/apiFacade";
 
 // Header Component
 const Header = styled.header`
@@ -129,6 +130,11 @@ function MainLayout() {
           {/* <LogoText>Styled App</LogoText> */}
         </Logo>
         <NavMenu>
+
+          {facade.hasUserAccess("admin", true) && (
+            <NavItem to="/admin">Admin</NavItem>
+          ) }
+
           <NavItem to="/home">Home</NavItem>
           <NavItem to="/countries">Countries</NavItem>
           <NavItem to="/login">Login</NavItem>
@@ -136,7 +142,7 @@ function MainLayout() {
       </Header>
       <Content>
         <MainContent>
-          <Outlet/>
+          <Outlet />
         </MainContent>
       </Content>
 
