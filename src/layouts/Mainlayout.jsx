@@ -2,6 +2,47 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import facade from "../util/apiFacade";
 
+function MainLayout() {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <Header>
+        <Logo onClick={() => navigate("/home")}>
+          <LogoImg src="/logo.png" alt="Logo" />
+          {/* <LogoText>Styled App</LogoText> */}
+        </Logo>
+        <NavMenu>
+
+          {facade.hasUserAccess("admin", true) && (
+            <NavItem to="/admin">Admin</NavItem>
+          ) }
+
+          <NavItem to="/home">Home</NavItem>
+          <NavItem to="/countries">Countries</NavItem>
+          <NavItem to="/documentation">Documentation</NavItem>
+          <NavItem to="/login">Login</NavItem>
+        </NavMenu>
+      </Header>
+      <Content>
+        <MainContent>
+          <Outlet />
+        </MainContent>
+      </Content>
+
+      <Footer>
+        <p>
+          &copy; 2024 Travel Planner. All rights reserved. |{" "}
+          <a href="/privacy-policy">Privacy Policy</a> |{" "}
+          <a href="/terms-of-service">Terms of Service</a>
+        </p>
+      </Footer>
+    </>
+  );
+}
+
+export default MainLayout;
+
 // Header Component
 const Header = styled.header`
   background-color: #0f3d41;
@@ -52,7 +93,7 @@ const NavItem = styled(Link)`
     display: block;
     height: 2px;
     width: 0;
-    background: #342056; /* Color for underline */
+    background:rgb(68, 132, 75); /* Color for underline */
     transition: width 0.3s ease; /* Smooth underline animation */
   }
 
@@ -108,7 +149,6 @@ const ErrorBanner = styled.div`
 const Footer = styled.footer`
   background-color: lightgrey;
   color: grey;
-  padding: 20px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,45 +156,5 @@ const Footer = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 1000; /* Ensures the footer appears above other content if overlapping */
+  z-index: 500; /* Ensures the footer appears above other content if overlapping */
 `;
-
-function MainLayout() {
-  const navigate = useNavigate();
-
-  return (
-    <>
-      <Header>
-        <Logo onClick={() => navigate("/home")}>
-          <LogoImg src="/logo.png" alt="Logo" />
-          {/* <LogoText>Styled App</LogoText> */}
-        </Logo>
-        <NavMenu>
-
-          {facade.hasUserAccess("admin", true) && (
-            <NavItem to="/admin">Admin</NavItem>
-          ) }
-
-          <NavItem to="/home">Home</NavItem>
-          <NavItem to="/countries">Countries</NavItem>
-          <NavItem to="/login">Login</NavItem>
-        </NavMenu>
-      </Header>
-      <Content>
-        <MainContent>
-          <Outlet />
-        </MainContent>
-      </Content>
-
-      <Footer>
-        <p>
-          &copy; 2024 Travel Planner. All rights reserved. |{" "}
-          <a href="/privacy-policy">Privacy Policy</a> |{" "}
-          <a href="/terms-of-service">Terms of Service</a>
-        </p>
-      </Footer>
-    </>
-  );
-}
-
-export default MainLayout;

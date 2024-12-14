@@ -4,7 +4,7 @@ function handleHttpErrors(res) {
   if (!res.ok) {
     return Promise.reject({ status: res.status, fullError: res.json() });
   }
-  return res.json();
+  return res.text().then((text) => (text ? JSON.parse(text) : {}));
 }
 
 function apiFacade() {
@@ -70,6 +70,21 @@ object when you do)*/
     return fetch(URL + "/countries", options).then(handleHttpErrors);
   };
 
+  const createCountry = (country) => {
+    const options = makeOptions("POST", true, country);
+    return fetch(URL + "/countries", options).then(handleHttpErrors);
+  };
+
+  const updateCountry = (id, country) => {
+    const options = makeOptions("PUT", true, country);
+    return fetch(URL + `/countries/${id}`, options).then(handleHttpErrors);
+  };
+
+  const deleteCountry = (id) => {
+    const options = makeOptions("DELETE", true);
+    return fetch(URL + `/countries/${id}`, options).then(handleHttpErrors);
+  };
+
   const makeOptions = (method, addToken, body) => {
     var opts = {
       method: method,
@@ -96,7 +111,10 @@ object when you do)*/
     logout,
     hasUserAccess,
     createUser,
-    fetchDataCountries
+    fetchDataCountries,
+    createCountry,
+    updateCountry,
+    deleteCountry,
   };
 }
 
