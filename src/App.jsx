@@ -28,7 +28,7 @@ function App() {
         setCountries(data); // Keep the original list intact
       })
       .catch((error) => console.error("Error fetching trips:", error));
-  }, []);
+  }, [])
 
   const router = createBrowserRouter(
     createRoutesFromElements(
