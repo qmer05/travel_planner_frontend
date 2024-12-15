@@ -54,17 +54,32 @@ const Header = styled.header`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
-  width: 95%;
+  width: 95%; /* Make sure it spans the full width of the viewport */
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    padding: 10px 20px; /* Adjust padding */
+  }
 `;
 
 const Logo = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px; /* Adds spacing between the logo and navigation on small screens */
+  }
 `;
 
 const LogoImg = styled.img`
-  height: 80px;
+  height: 60px; /* Reduce logo size for smaller screens */
   margin-right: 15px;
+
+  @media (max-width: 768px) {
+    height: 50px; /* Further adjust logo size for narrow devices */
+  }
 `;
 
 /*
@@ -78,36 +93,51 @@ const LogoText = styled.h1`
 const NavMenu = styled.nav`
   display: flex;
   gap: 30px;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack navigation links vertically */
+    gap: 15px; /* Adjust spacing between links */
+    align-items: center; /* Center align navigation */
+  }
 `;
 
 const NavItem = styled(Link)`
   color: #34d5e3;
   text-decoration: none;
   font-size: 1.1rem;
-  font-weight: normal; /* Set a consistent font weight */
-  padding-bottom: 2px; /* Optional: Adds spacing for underline effect */
-  position: relative; /* Allows custom hover effects */
+  font-weight: normal;
+  padding-bottom: 2px;
+  position: relative;
 
   &::after {
     content: "";
     display: block;
     height: 2px;
     width: 0;
-    background:rgb(68, 132, 75); /* Color for underline */
-    transition: width 0.3s ease; /* Smooth underline animation */
+    background: rgb(68, 132, 75);
+    transition: width 0.3s ease;
   }
 
   &:hover::after {
-    width: 100%; /* Expand the underline on hover */
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem; /* Slightly reduce font size */
   }
 `;
 
-// Content Layout
+// Add this to ensure the main content stays accessible
 const Content = styled.div`
   display: flex;
-  margin-top: 100px; /* Adjust this value based on the height of your header */
-  margin-bottom: 80px; /* Adjust for footer height */
+  flex-direction: column; /* Adjust content layout for responsive design */
+  margin-top: 100px;
+  margin-bottom: 80px;
   color: #333;
+
+  @media (max-width: 768px) {
+    margin-top: 120px; /* Increase top margin for the stacked header */
+  }
 `;
 
 /*
@@ -156,5 +186,6 @@ const Footer = styled.footer`
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 500; /* Ensures the footer appears above other content if overlapping */
+  z-index: 500;
+  padding: 10px; /* Add some padding for better spacing */
 `;
