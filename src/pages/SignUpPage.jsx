@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SignUp from "../components/Signup";
+import SignUp from "../components/SignUp";
 
 const SignUpPage = () => {
   return (
