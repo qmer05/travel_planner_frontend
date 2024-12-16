@@ -20,7 +20,7 @@ function MainLayout() {
 
           <NavItem to="/home">Home</NavItem>
           <NavItem to="/countries">Countries</NavItem>
-          <NavItem to="/documentation">Documentation</NavItem>
+          <NavItem to="/api-documentation">API Documentation</NavItem>
           <NavItem to="/login">Login</NavItem>
         </NavMenu>
       </Header>
