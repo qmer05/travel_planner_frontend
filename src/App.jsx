@@ -13,10 +13,11 @@ import { useEffect, useState } from "react";
 import Admin from "./pages/Admin";
 import SignUpPage from "./pages/SignUpPage";
 import ApiDocumentation from "./pages/ApiDocumentation";
+import facade from "./util/apiFacade";
 
 function App() {
   const [countries, setCountries] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false); // Set initial state based on token
+  const [loggedIn, setLoggedIn] = useState(facade.loggedIn()); // Set initial state based on token
 
   const urlCountries = "https://travelplannerapi.omertech.dk/api/countries";
 

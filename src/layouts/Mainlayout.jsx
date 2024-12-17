@@ -13,15 +13,17 @@ function MainLayout() {
           {/* <LogoText>Styled App</LogoText> */}
         </Logo>
         <NavMenu>
-
           {facade.hasUserAccess("admin", true) && (
             <NavItem to="/admin">Admin</NavItem>
-          ) }
-
+          )}
           <NavItem to="/home">Home</NavItem>
           <NavItem to="/countries">Countries</NavItem>
           <NavItem to="/api-documentation">API Documentation</NavItem>
-          <NavItem to="/login">Login</NavItem>
+          {!facade.loggedIn() ? (
+            <NavItem to="/login">Login</NavItem>
+          ) : (
+            <NavItem to="/login">Profile</NavItem>
+          )}
         </NavMenu>
       </Header>
       <Content>
