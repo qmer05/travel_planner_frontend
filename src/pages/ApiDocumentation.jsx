@@ -1,76 +1,93 @@
 import styled from "styled-components";
 
 const ApiDocumentation = () => {
-    return (
-        <Container>
-            <Title>API Documentation</Title>
-            <Introduction>
-                <p>
-                    The <strong>Travel Planner API</strong> provides information about countries, including details such as currency, capital, language, borders, population, and more. 
-                    It is intended for developers or anyone needing structured data about countries.
-                </p>
-                <p>
-                    <strong>Authentication:</strong> No API key is required, but some endpoints require a token 
-                    (e.g., <em>user</em> or <em>admin</em> roles).
-                </p>
-                <p>
-                    <strong>Base URL:</strong>{" "}
-                    <a href="https://travelplannerapi.omertech.dk/api/countries" target="_blank" rel="noopener noreferrer">
-                        https://travelplannerapi.omertech.dk/api/countries
-                    </a>
-                </p>
-            </Introduction>
+  return (
+    <Container>
+      <Title>API Documentation</Title>
+      <Introduction>
+        <p>
+          The <strong>Travel Planner API</strong> provides information about
+          countries, including details such as currency, capital, language,
+          borders, population, and more. It is intended for developers or anyone
+          needing structured data about countries.
+        </p>
+        <p>
+          <strong>Authentication:</strong> No API key is required, but some
+          endpoints require a token (e.g., <em>user</em> or <em>admin</em>{" "}
+          roles).
+        </p>
+        <p>
+          <strong>Base URL:</strong>{" "}
+          <a
+            href="https://travelplannerapi.omertech.dk/api/countries"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://travelplannerapi.omertech.dk/api/countries
+          </a>
+        </p>
+      </Introduction>
 
-            <Section>
-                <Subtitle>Endpoints</Subtitle>
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>Path</th>
-                            <th>HTTP Method</th>
-                            <th>Description</th>
-                            <th>Authentication</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>/api/countries</code></td>
-                            <td>GET</td>
-                            <td>Retrieve information about all countries.</td>
-                            <td>None</td>
-                        </tr>
-                        <tr>
-                            <td><code>/api/countries/:id</code></td>
-                            <td>GET</td>
-                            <td>Retrieve information about a specific country by ID.</td>
-                            <td>Admin token required</td>
-                        </tr>
-                        <tr>
-                            <td><code>/api/countries</code></td>
-                            <td>POST</td>
-                            <td>Add a new country.</td>
-                            <td>Admin token required</td>
-                        </tr>
-                        <tr>
-                            <td><code>/api/countries/:id</code></td>
-                            <td>PUT</td>
-                            <td>Update an existing country by ID.</td>
-                            <td>Admin token required</td>
-                        </tr>
-                        <tr>
-                            <td><code>/api/countries/:id</code></td>
-                            <td>DELETE</td>
-                            <td>Delete a country by ID.</td>
-                            <td>Admin token required</td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </Section>
+      <Section>
+        <Subtitle>Endpoints</Subtitle>
+        <Table>
+          <thead>
+            <tr>
+              <th>Path</th>
+              <th>HTTP Method</th>
+              <th>Description</th>
+              <th>Authentication</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <code>/api/countries</code>
+              </td>
+              <td>GET</td>
+              <td>Retrieve information about all countries.</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>
+                <code>/api/countries/:id</code>
+              </td>
+              <td>GET</td>
+              <td>Retrieve information about a specific country by ID.</td>
+              <td>Admin token required</td>
+            </tr>
+            <tr>
+              <td>
+                <code>/api/countries</code>
+              </td>
+              <td>POST</td>
+              <td>Add a new country.</td>
+              <td>Admin token required</td>
+            </tr>
+            <tr>
+              <td>
+                <code>/api/countries/:id</code>
+              </td>
+              <td>PUT</td>
+              <td>Update an existing country by ID.</td>
+              <td>Admin token required</td>
+            </tr>
+            <tr>
+              <td>
+                <code>/api/countries/:id</code>
+              </td>
+              <td>DELETE</td>
+              <td>Delete a country by ID.</td>
+              <td>Admin token required</td>
+            </tr>
+          </tbody>
+        </Table>
+      </Section>
 
-            <Section>
-                <Subtitle>Example Response</Subtitle>
-                <CodeBlock>
-                    {`
+      <Section>
+        <Subtitle>Example Response</Subtitle>
+        <CodeBlock>
+          {`
 [
     {
         "id": 39,
@@ -86,44 +103,44 @@ const ApiDocumentation = () => {
     }
 ]
                     `}
-                </CodeBlock>
-            </Section>
+        </CodeBlock>
+      </Section>
 
-            <Section>
-                <Subtitle>Status Codes</Subtitle>
-                <Table>
-                    <thead>
-                        <tr>
-                            <th>Status Code</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>200</td>
-                            <td>Success - Data retrieved successfully.</td>
-                        </tr>
-                        <tr>
-                            <td>401</td>
-                            <td>Error - Unauthorized (token missing or invalid).</td>
-                        </tr>
-                        <tr>
-                            <td>403</td>
-                            <td>Error - Forbidden (insufficient permissions).</td>
-                        </tr>
-                        <tr>
-                            <td>404</td>
-                            <td>Error - Resource not found.</td>
-                        </tr>
-                        <tr>
-                            <td>500</td>
-                            <td>Error - Internal server error.</td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </Section>
-        </Container>
-    );
+      <Section>
+        <Subtitle>Status Codes</Subtitle>
+        <Table>
+          <thead>
+            <tr>
+              <th>Status Code</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>200</td>
+              <td>Success - Data retrieved successfully.</td>
+            </tr>
+            <tr>
+              <td>401</td>
+              <td>Error - Unauthorized (token missing or invalid).</td>
+            </tr>
+            <tr>
+              <td>403</td>
+              <td>Error - Forbidden (insufficient permissions).</td>
+            </tr>
+            <tr>
+              <td>404</td>
+              <td>Error - Resource not found.</td>
+            </tr>
+            <tr>
+              <td>500</td>
+              <td>Error - Internal server error.</td>
+            </tr>
+          </tbody>
+        </Table>
+      </Section>
+    </Container>
+  );
 };
 
 export default ApiDocumentation;
@@ -151,7 +168,7 @@ const Introduction = styled.div`
   text-align: left;
 
   a {
-    color: #007BFF;
+    color: #007bff;
     text-decoration: none;
 
     &:hover {
@@ -180,7 +197,8 @@ const Table = styled.table`
   font-size: 1rem;
   margin-bottom: 20px;
 
-  th, td {
+  th,
+  td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;

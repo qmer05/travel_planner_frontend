@@ -25,7 +25,7 @@ function App() {
     fetch(urlCountries)
       .then((response) => response.json())
       .then((data) => {
-        setCountries(data); // Keep the original list intact
+        setCountries(data);
       })
       .catch((error) => console.error("Error fetching trips:", error));
   }, [])

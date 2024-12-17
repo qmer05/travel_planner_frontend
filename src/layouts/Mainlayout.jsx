@@ -82,14 +82,6 @@ const LogoImg = styled.img`
   }
 `;
 
-/*
-const LogoText = styled.h1`
-  font-size: 1.8rem;
-  color: white;
-  margin: 0;
-`;
-*/
-
 const NavMenu = styled.nav`
   display: flex;
   gap: 30px;
@@ -127,7 +119,6 @@ const NavItem = styled(Link)`
   }
 `;
 
-// Add this to ensure the main content stays accessible
 const Content = styled.div`
   display: flex;
   flex-direction: column; /* Adjust content layout for responsive design */
@@ -139,24 +130,6 @@ const Content = styled.div`
     margin-top: 120px; /* Increase top margin for the stacked header */
   }
 `;
-
-/*
-const LeftMenu = styled.div`
-  width: 200px;
-  background-color: #f4f4f4;
-  padding: 20px;
-`;
-
-const LeftMenuItem = styled(Link)`
-  display: block;
-  color: #333;
-  text-decoration: none;
-  margin-bottom: 10px;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-*/
 
 const MainContent = styled.div`
   flex: 1;
