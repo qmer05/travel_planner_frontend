@@ -33,10 +33,13 @@ export default Home;
 
 // Styled components
 const PageContainer = styled.div`
+  background-color: #f4f4f9; /* Background color */
   display: flex;
   justify-content: center;
-  height: 40vh;
-  margin-top: 10vh;
+  align-items: flex-start; /* Align to the top */
+  height: 100vh; /* Full height of the viewport */
+  padding-top: 10vh; /* Add some top padding */
+  box-sizing: border-box;
 `;
 
 const LoginContainer = styled.div`

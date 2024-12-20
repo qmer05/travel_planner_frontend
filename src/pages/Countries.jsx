@@ -28,8 +28,9 @@ export default Countries;
 
 // Styled components
 const Container = styled.div`
+  background-color: #f4f4f9;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
 `;

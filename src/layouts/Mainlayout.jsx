@@ -27,11 +27,8 @@ function MainLayout() {
         </NavMenu>
       </Header>
       <Content>
-        <MainContent>
-          <Outlet />
-        </MainContent>
+        <Outlet />
       </Content>
-
       <Footer>
         <p>
           &copy; 2024 Travel Planner. All rights reserved. |{" "}
@@ -126,20 +123,11 @@ const Content = styled.div`
   flex-direction: column; /* Adjust content layout for responsive design */
   margin-top: 100px;
   margin-bottom: 80px;
-  color: #333;
 
   @media (max-width: 768px) {
     margin-top: 190px; /* Increase top margin for the stacked header */
     margin-bottom: 100px;
   }
-`;
-
-const MainContent = styled.div`
-  flex: 1;
-  padding: 20px;
-  background-color: #fafafa;
-  border-left: 2px solid #ccc;
-  overflow-y: auto; /* Allows scrolling inside the main content if needed */
 `;
 
 /*
