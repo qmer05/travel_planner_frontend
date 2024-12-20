@@ -129,7 +129,8 @@ const Content = styled.div`
   color: #333;
 
   @media (max-width: 768px) {
-    margin-top: 120px; /* Increase top margin for the stacked header */
+    margin-top: 190px; /* Increase top margin for the stacked header */
+    margin-bottom: 100px;
   }
 `;
 
