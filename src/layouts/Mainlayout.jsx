@@ -6,7 +6,7 @@ function MainLayout() {
   const navigate = useNavigate();
 
   return (
-    <>
+    <Window>
       <Header>
         <Logo onClick={() => navigate("/home")}>
           <LogoImg src="/logo.png" alt="Logo" />
@@ -36,14 +36,18 @@ function MainLayout() {
           <a href="/terms-of-service">Terms of Service</a>
         </p>
       </Footer>
-    </>
+    </Window>
   );
 }
 
 export default MainLayout;
 
+const Window = styled.div`
+  margin: -8px;
+`;
+
 // Header Component
-const Header = styled.header`
+const Header = styled.div`
   background-color: #0f3d41;
   color: white;
   padding: 20px 40px;
@@ -152,6 +156,7 @@ const Footer = styled.footer`
   width: 100%;
   z-index: 500;
   padding: 10px; /* Add some padding for better spacing */
+  margin-bottom: -2px;
 
   p {
     font-size: 1rem; /* Default font size for larger screens */
