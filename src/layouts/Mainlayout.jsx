@@ -152,4 +152,16 @@ const Footer = styled.footer`
   width: 100%;
   z-index: 500;
   padding: 10px; /* Add some padding for better spacing */
+
+  p {
+    font-size: 1rem; /* Default font size for larger screens */
+    text-align: center;
+    margin: 0; /* Remove unnecessary margins */
+  }
+
+  @media (max-width: 768px) {
+    p {
+      font-size: 0.6rem; /* Reduce font size for smaller screens */
+    }
+  }
 `;

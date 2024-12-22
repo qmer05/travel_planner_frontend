@@ -30,6 +30,7 @@ const ApiDocumentation = () => {
 
       <Section>
         <Subtitle>Endpoints</Subtitle>
+        <TableWrapper>
         <Table>
           <thead>
             <tr>
@@ -82,6 +83,7 @@ const ApiDocumentation = () => {
             </tr>
           </tbody>
         </Table>
+        </TableWrapper>
       </Section>
 
       <Section>
@@ -108,6 +110,7 @@ const ApiDocumentation = () => {
 
       <Section>
         <Subtitle>Status Codes</Subtitle>
+        <TableWrapper>
         <Table>
           <thead>
             <tr>
@@ -138,6 +141,7 @@ const ApiDocumentation = () => {
             </tr>
           </tbody>
         </Table>
+        </TableWrapper>
       </Section>
     </Container>
   );
@@ -191,11 +195,17 @@ const Subtitle = styled.h2`
   margin-bottom: 10px;
 `;
 
+const TableWrapper = styled.div`
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+`;
+
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
   margin-bottom: 20px;
+  min-width: 600px; /* Ensure the table maintains a readable layout on small screens */
 
   th,
   td {
