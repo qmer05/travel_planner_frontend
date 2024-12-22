@@ -161,7 +161,7 @@ const Footer = styled.footer`
 
   @media (max-width: 768px) {
     p {
-      font-size: 0.6rem; /* Reduce font size for smaller screens */
+      font-size: 0.5rem; /* Reduce font size for smaller screens */
     }
   }
 `;
