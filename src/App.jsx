@@ -13,6 +13,7 @@ import Admin from "./pages/Admin";
 import SignUpPage from "./pages/SignUpPage";
 import ApiDocumentation from "./pages/ApiDocumentation";
 import facade from "./util/apiFacade";
+import Error404NotFound from "./components/Error404NotFound";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -40,6 +41,7 @@ function App() {
         <Route path="/countries" element={<Countries countries={countries}/>} />
         <Route path="/admin" element={<Admin countries={countries} setCountries={setCountries} />} />
         <Route path="/api-documentation" element={<ApiDocumentation/>} />
+        <Route path="*" element={<Error404NotFound/>} />
       </Route>
     )
   );

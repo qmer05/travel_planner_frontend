@@ -19,6 +19,7 @@ function MainLayout() {
           <NavItem to="/home">Home</NavItem>
           <NavItem to="/countries">Countries</NavItem>
           <NavItem to="/api-documentation">API Documentation</NavItem>
+          <NavItem to="/contact">Contact</NavItem>
           {!facade.loggedIn() ? (
             <NavItem to="/login">Login</NavItem>
           ) : (
