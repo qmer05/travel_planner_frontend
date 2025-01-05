@@ -3,7 +3,7 @@ import LoggedIn from "../components/LoggedIn";
 import LogIn from "../components/LogIn";
 import facade from "../util/apiFacade";
 
-function Home({ loggedIn, setLoggedIn }) {
+function LoginPage({ loggedIn, setLoggedIn }) {
   const logout = () => {
     facade.logout();
     setLoggedIn(false);
@@ -29,7 +29,7 @@ function Home({ loggedIn, setLoggedIn }) {
   );
 }
 
-export default Home;
+export default LoginPage;
 
 // Styled components
 const PageContainer = styled.div`
