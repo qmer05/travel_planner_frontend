@@ -4,7 +4,11 @@ function handleHttpErrors(res) {
   if (!res.ok) {
     return Promise.reject({ status: res.status, fullError: res.json() });
   }
-  return res.text().then((text) => (text ? JSON.parse(text) : {}));
+  // If the response has no content (204), just return an empty object or `null`
+  if (res.status === 204) {
+    return Promise.resolve();
+  }
+  return res.json();
 }
 
 function apiFacade() {
