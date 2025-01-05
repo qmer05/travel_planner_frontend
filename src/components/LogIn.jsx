@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function LogIn({ login }) {
+function LogIn({ login, errorMessage }) {
   const init = { username: "", password: "" };
   const [loginCredentials, setLoginCredentials] = useState(init);
 
@@ -22,6 +22,7 @@ function LogIn({ login }) {
         <input placeholder="Password" id="password" onChange={onChange} value={loginCredentials.password} type="password" /><br/><br/>
         <button type="submit">Login</button>
       </form>
+      <p style={{ color: 'red', fontWeight: "bold" }}>{errorMessage}</p>
       <p>Dont have an account? <Link to="/signup">Create one here</Link></p>
     </div>
   );

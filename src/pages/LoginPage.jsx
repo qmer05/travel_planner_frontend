@@ -2,22 +2,31 @@ import styled from "styled-components";
 import LoggedIn from "../components/LoggedIn";
 import LogIn from "../components/LogIn";
 import facade from "../util/apiFacade";
+import { useState } from "react";
 
 function LoginPage({ loggedIn, setLoggedIn }) {
+  const [errorMessage, setErrorMessage] = useState("");
   const logout = () => {
     facade.logout();
     setLoggedIn(false);
   };
 
   const login = (user, pass) => {
-    facade.login(user, pass).then(() => setLoggedIn(true));
+    facade.login(user, pass)
+      .then(() => {
+        setLoggedIn(true);
+        setErrorMessage(""); // Clear any previous error
+      })
+      .catch(() => {
+        setErrorMessage("Invalid login. Please try again");
+      });
   };
 
   return (
     <PageContainer>
       {!loggedIn ? (
         <LoginContainer>
-          <LogIn login={login} />
+          <LogIn login={login} errorMessage={errorMessage} />
         </LoginContainer>
       ) : (
         <LoginContainer>
